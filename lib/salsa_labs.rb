@@ -18,4 +18,10 @@ module SalsaLabs
   class Error < StandardError
   end
 
+  class << self
+    def new(options = {})
+      SalsaLabs::Client.new(options)
+    end
+  end
+
 end

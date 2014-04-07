@@ -11,12 +11,12 @@ module SalsaLabs
 
     boolean_attributes :receive_email
 
-    def self.fetch(filter_parameters = {}, credentials = {})
-      SupportersFetcher.new(filter_parameters, credentials).fetch
+    def self.fetch(filter_parameters = {}, api_client)
+      SupportersFetcher.new(filter_parameters, api_client).fetch
     end
 
-    def self.tagged(tag, filter_parameters={}, credentials = {})
-      SupportersFetcher.new(filter_parameters).tagged(tag)
+    def self.tagged(tag, filter_parameters={}, api_client)
+      SupportersFetcher.new(filter_parameters, api_client).tagged(tag)
     end
 
   end
@@ -25,8 +25,8 @@ module SalsaLabs
   # SupportersFetcher is a service object to pull back a collection of supporters from the Salsa Labs API.
   ##
   class SupportersFetcher < SalsaObjectsFetcher 
-    def initialize(filter_parameters = {}, credentials = {})
-      super(filter_parameters, credentials)
+    def initialize(filter_parameters = {}, api_client)
+      super(filter_parameters, api_client)
       @object_class = SalsaLabs::Supporter
     end
 

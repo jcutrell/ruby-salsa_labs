@@ -4,9 +4,9 @@ module SalsaLabs
   ##
   class SalsaObjectsFetcher
 
-    def initialize(filter_parameters = {}, credentials = {})
+    def initialize(filter_parameters = {}, api_client)
       @filter_parameters = SalsaLabs::ApiObjectParameterList.new(filter_parameters)
-      @client = SalsaLabs::ApiClient.new(credentials)
+      @client = api_client
     end
 
     def fetch
