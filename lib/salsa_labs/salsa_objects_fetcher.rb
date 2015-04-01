@@ -9,6 +9,13 @@ module SalsaLabs
       @client = SalsaLabs::ApiClient.new(credentials)
     end
 
+    def filter_parameters_without_limit
+      attributes_without_limit = filter_parameters.attributes.clone
+      attributes_without_limit.delete "Limit"
+      puts attributes_without_limit.inspect
+      SalsaLabs::ApiObjectParameterList.new(attributes_without_limit)
+    end
+
     def fetch
       item_objects(get_objects)
     end
@@ -33,13 +40,17 @@ module SalsaLabs
     end
 
     def api_parameters
-      if filter_parameters
-        params = {'condition'=>filter_parameters.attributes.flat_map {|k,v| "#{k}=#{v}" }}
+      @limit = filter_parameters.attributes["Limit"] || "500"
+      if filter_parameters_without_limit
+        puts filter_parameters.attributes.inspect
+        puts filter_parameters_without_limit.inspect
+        params = {'condition'=>filter_parameters_without_limit.attributes.flat_map {|k,v| "#{k}=#{v}" unless k.downcase == "limit" }}
       else
         params = {} 
       end
-
-      params.merge(object: @object_class.object_name)
+      puts params.inspect
+      puts params.merge(object: @object_class.object_name, limit: @limit)
+      params.merge(object: @object_class.object_name, limit: @limit)
     end
 
 

@@ -124,6 +124,8 @@ module SalsaLabs
 
       @attributes.each do |key, value|
         #re-capitalize according to Salsa's unique requirements
+        key = key.to_s
+        value = value.to_s
 
         #deal with exceptions first
         if ['key','object','tag'].include? key
