@@ -3,6 +3,7 @@ require 'nokogiri'
 
 require 'salsa_labs/version'
 require 'salsa_labs/api_client'
+require 'salsa_labs/api_object_parameter_list'
 require 'salsa_labs/salsa_object'
 require 'salsa_labs/salsa_objects_fetcher'
 require 'salsa_labs/salsa_objects_saver'
