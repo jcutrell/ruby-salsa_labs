@@ -46,9 +46,9 @@ module SalsaLabs
         params = {} 
       end
       if @limit.nil?
-        params.merge(object: @object_class.object_name)
+        params.merge(object: @object_class.name.split("::").last.underscore)
       else
-        params.merge(object: @object_class.object_name, limit: @limit)
+        params.merge(object: @object_class.name.split("::").last.underscore, limit: @limit)
       end
     end
 
