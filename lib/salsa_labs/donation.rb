@@ -5,7 +5,7 @@ module SalsaLabs
   #   https://help.salsalabs.com/entries/21518315-Standard-supporter-fields-the-supporter-object-
   ##
   class Donation < SalsaObject
-    integer_attributes :supporter_key, :chapter_key
+    integer_attributes :supporter_key, :chapter_key, :donation_key
     string_attributes :title, :first_name, :last_name, :mi, :suffix, :email, :phone, :street, :street_2, :city, :state,
                       :zip, :country, :source, :status, :timezone, :language_code, :source_tracking_code, :source_details,
                       :tracking_code
