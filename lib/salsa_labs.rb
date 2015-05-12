@@ -12,6 +12,7 @@ require 'salsa_labs/supporter'
 require 'salsa_labs/donation'
 require 'salsa_labs/groups'
 require 'salsa_labs/supporter_groups'
+require 'salsa_labs/supporter_actions'
 
 module SalsaLabs
 
