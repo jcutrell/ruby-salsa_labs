@@ -1,3 +1,3 @@
 module SalsaLabs
-  VERSION = "0.0.3.c"
+  VERSION = "0.0.3"
 end
