@@ -1,5 +1,8 @@
+$:.unshift File.dirname(__FILE__)
 require 'faraday'
 require 'nokogiri'
+require 'active_support'
+require 'active_support/core_ext'
 
 require 'salsa_labs/version'
 require 'salsa_labs/api_object_parameter_list'
