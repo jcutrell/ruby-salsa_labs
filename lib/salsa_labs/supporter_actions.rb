@@ -4,14 +4,14 @@ module SalsaLabs
   # Standard field list from documentation at
   #   https://help.salsalabs.com/entries/21518315-Standard-supporter-fields-the-supporter-object-
   ##
-  class SupporterActions < SalsaObject
+  class SupporterAction < SalsaObject
 
     def self.fetch(filter_parameters = {}, credentials = {})
-      SupporterActionsFetcher.new(filter_parameters, credentials).fetch
+      SupporterActionFetcher.new(filter_parameters, credentials).fetch
     end
 
     def self.tagged(tag, filter_parameters={}, credentials = {})
-      SupporterActionsFetcher.new(filter_parameters).tagged(tag)
+      SupporterActionFetcher.new(filter_parameters).tagged(tag)
     end
 
     def tracking_info_blank?
@@ -22,10 +22,10 @@ module SalsaLabs
   ##
   # SupporterGroupsFetcher is a service object to pull back a collection of supporters from the Salsa Labs API.
   ##
-  class SupporterActionsFetcher < SalsaObjectsFetcher 
+  class SupporterActionFetcher < SalsaObjectsFetcher 
     def initialize(filter_parameters = {}, credentials = {})
       super(filter_parameters, credentials)
-      @object_class = SalsaLabs::SupporterActions
+      @object_class = SalsaLabs::SupporterAction
     end
 
     attr_reader :object_class
